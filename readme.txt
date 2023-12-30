@@ -18,3 +18,38 @@ A10
 4，打开 TrollStore Helper 安装 TrollStore
 5，打开 TrollStore 完成安装
 
+
+
+
+
+
+clashx trojan配置
+
+port: 7890
+socks-port: 7891
+allow-lan: false
+mode: Rule
+proxies:
+  - name: trojan
+    type: trojan
+    server: ipipipip
+    port: portportportport
+    password: passwordpasswordpasswordpassword
+    alpn:
+      - h2
+      - http/1.1
+    skip-cert-verify: true
+
+proxy-groups:
+  - name: "PROXY"
+    type: select
+    proxies:
+      - trojan
+
+
+rules:
+  - DOMAIN-SUFFIX,google.com,PROXY
+  - DOMAIN-SUFFIX,githubassets.com,PROXY
+  - DOMAIN-SUFFIX,github.com,PROXY
+  - DOMAIN-SUFFIX,githubusercontent.com,PROXY
+  - DOMAIN,www.bing.com,DIRECT
